@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dream Home Real Estate</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    color: #333;
+}
+
+/* Header */
+header {
+    background: #153448;
+    color: white;
+    padding: 22px;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 8px;
+}
+
+/* Navigation */
+nav {
+    background: #24576a;
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #ffc857;
+}
+
+/* Banner */
+.banner {
+    background: linear-gradient(#0007,#0007),
+    url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.banner h2 {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.banner p {
+    font-size: 18px;
+}
+
+/* Sections */
+section {
+    padding: 40px 20px;
+}
+
+h2 {
+    color: #153448;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Search */
+.search-box {
+    background: white;
+    padding: 25px;
+    text-align: center;
+    max-width: 1000px;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.search-box input,
+.search-box select {
+    padding: 12px;
+    margin: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 12px 22px;
+    background: #e09f3e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #bc6c25;
+}
+
+/* Property Cards */
+.property-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,
+    minmax(250px, 1fr));
+    gap: 25px;
+    max-width: 1150px;
+    margin: auto;
+}
+
+.property-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px #0002;
+    transition: 0.3s;
+}
+
+.property-card:hover {
+    transform: translateY(-6px);
+}
+
+.property-card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
+
+.property-info {
+    padding: 18px;
+}
+
+.property-info h3 {
+    color: #153448;
+    margin-bottom: 10px;
+}
+
+.price {
+    color: #d97706;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.details {
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.tag {
+    display: inline-block;
+    background: #d1fae5;
+    color: #047857;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Comparison Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+th, td {
+    padding: 14px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background: #24576a;
+    color: white;
+}
+
+tr:hover {
+    background: #eaf2f5;
+}
+
+/* Amenities */
+.amenities {
+    background: white;
+    padding: 25px;
+    text-align: center;
+    line-height: 2.5;
+    border-radius: 10px;
+    max-width: 900px;
+    margin: auto;
+}
+
+/* Contact */
+#contact {
+    background: #dceef2;
+    text-align: center;
+    line-height: 2;
+}
+
+/* Footer */
+footer {
+    background: #153448;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Responsive */
+@media(max-width:600px) {
+    nav a {
+        display: inline-block;
+        margin: 7px;
+    }
+
+    .banner h2 {
+        font-size: 27px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Header -->
+<header>
+<h1> Dream Home Real Estate</h1>
+<p>Find Your Perfect Property</p>
+</header>
+
+<!-- Navigation -->
+<nav>
+<a href="#home">Home</a>
+<a href="#properties">Properties</a>
+<a href="#search">Search</a>
+<a href="#comparison">Compare</a>
+<a href="#amenities">Amenities</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<!-- Banner -->
+<div class="banner" id="home">
+<h2>Find Your Dream Home</h2>
+<p>Buy, Sell and Rent Properties Easily</p>
+<button onclick="location.href='#properties'">
+Explore Properties
+</button>
+</div>
+
+<!-- Search Filter -->
+<section id="search">
+<h2>Search Properties</h2>
+
+<div class="search-box">
+<input type="text" id="location"
+placeholder="Enter location">
+
+<select id="type">
+<option value="all">All Properties</option>
+<option value="House">House</option>
+<option value="Apartment">Apartment</option>
+<option value="Rental">Rental</option>
+</select>
+
+<select id="maxPrice">
+<option value="all">Any Price</option>
+<option value="5000000">Below ₹50 Lakhs</option>
+<option value="10000000">Below ₹1 Crore</option>
+<option value="20000000">Below ₹2 Crore</option>
+</select>
+
+<button onclick="filterProperties()">Search</button>
+<button onclick="resetFilters()">Reset</button>
+</div>
+</section>
+
+<!-- Property Listings -->
+<section id="properties">
+<h2>Available Properties</h2>
+
+<div class="property-container" id="propertyContainer">
+
+<!-- Property 1 -->
+<div class="property-card"
+data-location="vijayawada"
+data-type="House"
+data-price="8500000">
+<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
+alt="Luxury House">
+<div class="property-info">
+<span class="tag">For Sale</span>
+<h3>Luxury Family House</h3>
+<p class="price">₹85 Lakhs</p>
+<p class="details">
+ Vijayawada<br>
+ 3 Bedrooms<br>
+ 2 Bathrooms<br>
+ Parking Available<br>
+ Garden
+</p>
+</div>
+</div>
+
+<!-- Property 2 -->
+<div class="property-card"
+data-location="hyderabad"
+data-type="Apartment"
+data-price="6500000">
+<img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00"
+alt="Modern Apartment">
+<div class="property-info">
+<span class="tag">For Sale</span>
+<h3>Modern Apartment</h3>
+<p class="price">₹65 Lakhs</p>
+<p class="details">
+ Hyderabad<br>
+ 2 Bedrooms<br>
+ 2 Bathrooms<br>
+ Swimming Pool<br>
+ Gym
+</p>
+</div>
+</div>
+
+<!-- Property 3 -->
+<div class="property-card"
+data-location="vijayawada"
+data-type="Rental"
+data-price="15000">
+<img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c"
+alt="Rental Home">
+<div class="property-info">
+<span class="tag">For Rent</span>
+<h3>Beautiful Rental Home</h3>
+<p class="price">₹15,000 / Month</p>
+<p class="details">
+ Vijayawada<br>
+ 2 Bedrooms<br>
+ 1 Bathroom<br>
+ Parking<br>
+ Water Supply
+</p>
+</div>
+</div>
+
+<!-- Property 4 -->
+<div class="property-card"
+data-location="bangalore"
+data-type="House"
+data-price="12000000">
+<img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde"
+alt="Independent House">
+<div class="property-info">
+<span class="tag">For Sale</span>
+<h3>Independent House</h3>
+<p class="price">₹1.2 Crore</p>
+<p class="details">
+ Bangalore<br>
+ 4 Bedrooms<br>
+ 3 Bathrooms<br>
+ Garden<br>
+ Car Parking
+</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- Property Comparison -->
+<section id="comparison">
+<h2>Property Comparison</h2>
+
+<table>
+<tr>
+<th>Property</th>
+<th>Location</th>
+<th>Price</th>
+<th>Bedrooms</th>
+<th>Type</th>
+</tr>
+
+<tr>
+<td>Luxury Family House</td>
+<td>Vijayawada</td>
+<td>₹85 Lakhs</td>
+<td>3</td>
+<td>House</td>
+</tr>
+
+<tr>
+<td>Modern Apartment</td>
+<td>Hyderabad</td>
+<td>₹65 Lakhs</td>
+<td>2</td>
+<td>Apartment</td>
+</tr>
+
+<tr>
+<td>Beautiful Rental Home</td>
+<td>Vijayawada</td>
+<td>₹15,000/Month</td>
+<td>2</td>
+<td>Rental</td>
+</tr>
+
+<tr>
+<td>Independent House</td>
+<td>Bangalore</td>
+<td>₹1.2 Crore</td>
+<td>4</td>
+<td>House</td>
+</tr>
+</table>
+</section>
+
+<!-- Amenities -->
+<section id="amenities">
+<h2>Property Amenities</h2>
+
+<div class="amenities">
+<p> Swimming Pool</p>
+<p> Gym and Fitness Center</p>
+<p> Car Parking</p>
+<p> Garden and Green Space</p>
+<p> 24/7 Security</p>
+<p> Water Supply</p>
+<p> Lift Facility</p>
+</div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+<h2>Contact Us</h2>
+<p>Email: dreamhome@gmail.com</p>
+<p>Phone: 9876543210</p>
+<p>Address: Vijayawada, Andhra Pradesh</p>
+</section>
+
+<footer>
+<h3>Dream Home Real Estate</h3>
+<p>Find Your Dream Property With Us</p>
+<p>© 2026 All Rights Reserved</p>
+</footer>
+
+
+</body>
+</html>
