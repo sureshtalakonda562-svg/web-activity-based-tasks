@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Digital Library Management</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    color: #333;
+}
+
+/* Header */
+header {
+    background: #17324d;
+    color: white;
+    padding: 22px;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 8px;
+}
+
+/* Navigation */
+nav {
+    background: #24577a;
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: yellow;
+}
+
+/* Banner */
+.banner {
+    background: linear-gradient(#0008,#0008),
+    url("https://images.unsplash.com/photo-1507842217343-583bb7270b66");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 75px 20px;
+}
+
+.banner h2 {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+/* Sections */
+section {
+    padding: 35px 20px;
+}
+
+h2 {
+    text-align: center;
+    color: #17324d;
+    margin-bottom: 25px;
+}
+
+/* Search */
+.search {
+    text-align: center;
+    margin: 20px;
+}
+
+.search input {
+    width: 60%;
+    padding: 13px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+
+.search button {
+    padding: 13px 20px;
+    background: #24577a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Book Grid */
+.book-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,
+    minmax(190px, 1fr));
+    gap: 22px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.book {
+    background: white;
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px #0002;
+    transition: 0.3s;
+}
+
+.book:hover {
+    transform: translateY(-6px);
+}
+
+.book img {
+    width: 130px;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.book h3 {
+    color: #17324d;
+    margin: 12px 0;
+}
+
+.available {
+    color: green;
+    font-weight: bold;
+}
+
+.unavailable {
+    color: red;
+    font-weight: bold;
+}
+
+/* Filter */
+.filters {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.filters select {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+th, td {
+    padding: 13px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background: #24577a;
+    color: white;
+}
+
+tr:hover {
+    background: #e8f2fa;
+}
+
+/* Rules */
+.rules {
+    background: white;
+    max-width: 850px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 10px;
+    line-height: 2;
+}
+
+/* Footer */
+footer {
+    background: #17324d;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+@media(max-width:600px) {
+    nav a {
+        display: inline-block;
+        margin: 7px;
+    }
+
+    .search input {
+        width: 90%;
+        margin-bottom: 10px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>📚 Digital Library</h1>
+<p>Your Gateway to Knowledge</p>
+</header>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#categories">Categories</a>
+<a href="#books">Books</a>
+<a href="#catalog">Catalog</a>
+<a href="#rules">Rules</a>
+</nav>
+
+<!-- Banner -->
+<div class="banner" id="home">
+<h2>Welcome to Digital Library</h2>
+<p>Read More | Learn More | Grow More</p>
+</div>
+
+<!-- Search -->
+<section>
+<h2>Search Your Books</h2>
+<div class="search">
+<input type="text" id="searchInput"
+placeholder="Enter book name or author...">
+<button onclick="searchBooks()">Search</button>
+</div>
+</section>
+
+<!-- Categories -->
+<section id="categories">
+<h2>Book Categories</h2>
+<div class="book-container">
+<div class="book">💻<h3>Programming</h3></div>
+<div class="book">🔬<h3>Science</h3></div>
+<div class="book">📖<h3>Story Books</h3></div>
+<div class="book">📐<h3>Mathematics</h3></div>
+<div class="book">🌍<h3>History</h3></div>
+</div>
+</section>
+
+<!-- Filters -->
+<section>
+<h2>Filter Books</h2>
+<div class="filters">
+<select id="categoryFilter" onchange="filterBooks()">
+<option value="all">All Categories</option>
+<option value="Programming">Programming</option>
+<option value="Science">Science</option>
+<option value="Story">Story</option>
+<option value="Mathematics">Mathematics</option>
+</select>
+
+<select id="availabilityFilter" onchange="filterBooks()">
+<option value="all">All Availability</option>
+<option value="Available">Available</option>
+<option value="Unavailable">Unavailable</option>
+</select>
+</div>
+
+<!-- Book Covers -->
+<section id="books">
+<h2>Popular Books</h2>
+
+<div class="book-container" id="bookContainer">
+
+<div class="book" data-category="Programming"
+data-status="Available">
+<img src="https://covers.openlibrary.org/b/isbn/9780135166307-M.jpg"
+alt="C Programming Book">
+<h3>C Programming</h3>
+<p>Author: Dennis Ritchie</p>
+<p>Category: Programming</p>
+<p class="available">Available</p>
+</div>
+
+<div class="book" data-category="Programming"
+data-status="Available">
+<img src="https://covers.openlibrary.org/b/isbn/9780132350884-M.jpg"
+alt="Clean Code Book">
+<h3>Clean Code</h3>
+<p>Author: Robert C. Martin</p>
+<p>Category: Programming</p>
+<p class="available">Available</p>
+</div>
+
+<div class="book" data-category="Science"
+data-status="Unavailable">
+<img src="https://covers.openlibrary.org/b/isbn/9780134093413-M.jpg"
+alt="Physics Book">
+<h3>Physics</h3>
+<p>Author: David Halliday</p>
+<p>Category: Science</p>
+<p class="unavailable">Unavailable</p>
+</div>
+
+<div class="book" data-category="Story"
+data-status="Available">
+<img src="https://covers.openlibrary.org/b/isbn/9780141439518-M.jpg"
+alt="Pride and Prejudice">
+<h3>Pride and Prejudice</h3>
+<p>Author: Jane Austen</p>
+<p>Category: Story</p>
+<p class="available">Available</p>
+</div>
+
+<div class="book" data-category="Mathematics"
+data-status="Available">
+<img src="https://covers.openlibrary.org/b/isbn/9780134685991-M.jpg"
+alt="Calculus Book">
+<h3>Calculus</h3>
+<p>Author: James Stewart</p>
+<p>Category: Mathematics</p>
+<p class="available">Available</p>
+</div>
+
+</div>
+</section>
+</section>
+
+<!-- Catalog Table -->
+<section id="catalog">
+<h2>Book Catalog</h2>
+
+<table>
+<tr>
+<th>Book ID</th>
+<th>Book Name</th>
+<th>Author</th>
+<th>Category</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>101</td>
+<td>C Programming</td>
+<td>Dennis Ritchie</td>
+<td>Programming</td>
+<td class="available">Available</td>
+</tr>
+
+<tr>
+<td>102</td>
+<td>Clean Code</td>
+<td>Robert C. Martin</td>
+<td>Programming</td>
+<td class="available">Available</td>
+</tr>
+
+<tr>
+<td>103</td>
+<td>Physics</td>
+<td>David Halliday</td>
+<td>Science</td>
+<td class="unavailable">Unavailable</td>
+</tr>
+
+<tr>
+<td>104</td>
+<td>Pride and Prejudice</td>
+<td>Jane Austen</td>
+<td>Story</td>
+<td class="available">Available</td>
+</tr>
+
+<tr>
+<td>105</td>
+<td>Calculus</td>
+<td>James Stewart</td>
+<td>Mathematics</td>
+<td class="available">Available</td>
+</tr>
+</table>
+</section>
+
+<!-- Library Rules -->
+<section id="rules">
+<h2>Library Rules</h2>
+<div class="rules">
+<p>1. Maintain silence inside the library.</p>
+<p>2. Carry your college ID card.</p>
+<p>3. Return books before the due date.</p>
+<p>4. Do not damage library books.</p>
+<p>5. Keep the library clean.</p>
+<p>6. Follow the librarian's instructions.</p>
+</div>
+</section>
+
+<!-- Footer -->
+<footer>
+<h3>Digital Library Management</h3>
+<p>Email: sureshtalakonda562@gmail.com</p>
+<p>Phone: 9876543210</p>
+<p>© 2026 Digital Library. All Rights Reserved.</p>
+</footer>
+
+
+</body>
+</html>
