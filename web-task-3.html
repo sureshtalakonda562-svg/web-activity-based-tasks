@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Healthy Food and Nutrition</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f9f2;
+    color: #333;
+}
+
+/* Header */
+header {
+    background: #28643b;
+    color: white;
+    text-align: center;
+    padding: 22px;
+}
+
+header h1 {
+    margin-bottom: 8px;
+}
+
+/* Navigation */
+nav {
+    background: #3c8050;
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 12px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: yellow;
+}
+
+/* Banner */
+.banner {
+    background: linear-gradient(#0007,#0007),
+    url("https://images.unsplash.com/photo-1490645935967-10de6ba17061");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.banner h2 {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.banner button {
+    background: #f4c542;
+    border: none;
+    padding: 13px 25px;
+    margin-top: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Sections */
+section {
+    padding: 40px 20px;
+}
+
+h2 {
+    color: #28643b;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Cards */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,
+    minmax(220px, 1fr));
+    gap: 22px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px #0002;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card-info {
+    padding: 18px;
+}
+
+.card h3 {
+    color: #28643b;
+    margin-bottom: 10px;
+}
+
+.card p {
+    line-height: 1.7;
+}
+
+/* Meal Plan */
+.meal {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    line-height: 2;
+    max-width: 850px;
+    margin: auto;
+}
+
+/* Tips */
+.tips {
+    background: #e3f1df;
+}
+
+/* Footer */
+footer {
+    background: #28643b;
+    color: white;
+    text-align: center;
+    padding: 22px;
+}
+
+@media(max-width:600px) {
+    nav a {
+        display: inline-block;
+        margin: 7px;
+    }
+
+    .banner h2 {
+        font-size: 26px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Header -->
+<header>
+<h1>🥗 Healthy Life</h1>
+<p>Eat Healthy | Stay Healthy | Live Happy</p>
+</header>
+
+<!-- Navigation -->
+<nav>
+<a href="#home">Home</a>
+<a href="#categories">Categories</a>
+<a href="#recipes">Recipes</a>
+<a href="#mealplan">Meal Plans</a>
+<a href="#tips">Healthy Tips</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<!-- Banner -->
+<div class="banner" id="home">
+<h2>Welcome to Healthy Food</h2>
+<p>Discover Nutritious Food and Healthy Recipes</p>
+<button onclick="location.href='#recipes'">
+Explore Recipes
+</button>
+</div>
+
+<!-- Categories -->
+<section id="categories">
+<h2>Food Categories</h2>
+
+<div class="container">
+<div class="card">
+<div class="card-info">
+<h3> Vegetables</h3>
+<p>Fresh and nutritious vegetables.</p>
+</div>
+</div>
+
+<div class="card">
+<div class="card-info">
+<h3> Fruits</h3>
+<p>Natural fruits rich in vitamins.</p>
+</div>
+</div>
+
+<div class="card">
+<div class="card-info">
+<h3> Nuts and Seeds</h3>
+<p>Healthy fats and nutrients.</p>
+</div>
+</div>
+
+<div class="card">
+<div class="card-info">
+<h3> Dairy Products</h3>
+<p>Milk, curd and other dairy foods.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Recipes -->
+<section id="recipes">
+<h2>Healthy Recipes</h2>
+
+<div class="container">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd"
+alt="Vegetable Salad">
+<div class="card-info">
+<h3>Vegetable Salad</h3>
+<p><b>Ingredients:</b> Cucumber, tomato, carrot and lettuce.</p>
+<p><b>Preparation:</b> Wash and chop vegetables. Mix together.</p>
+<p>Approx. 180 kcal per serving</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061"
+alt="Healthy Breakfast">
+<div class="card-info">
+<h3>Healthy Breakfast Bowl</h3>
+<p><b>Ingredients:</b> Oats, milk, banana and nuts.</p>
+<p><b>Preparation:</b> Cook oats with milk and add fruits.</p>
+<p>Approx. 300 kcal per serving</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1547592180-85f173990554"
+alt="Vegetable Soup">
+<div class="card-info">
+<h3>Vegetable Soup</h3>
+<p><b>Ingredients:</b> Carrot, beans, tomato and spinach.</p>
+<p><b>Preparation:</b> Cook vegetables with water and spices.</p>
+<p>Approx. 150 kcal per serving</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd"
+alt="Fruit Salad">
+<div class="card-info">
+<h3>Fresh Fruit Salad</h3>
+<p><b>Ingredients:</b> Apple, banana, papaya and grapes.</p>
+<p><b>Preparation:</b> Cut fruits and mix gently.</p>
+<p>Approx. 160 kcal per serving</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- Meal Plans -->
+<section id="mealplan">
+<h2>Daily Healthy Meal Plan</h2>
+
+<div class="meal">
+<p> <b>Breakfast:</b> Idli, sambar and fruit.</p>
+<p> <b>Morning Snack:</b> Seasonal fruit and nuts.</p>
+<p> <b>Lunch:</b> Rice, dal, vegetables and curd.</p>
+<p> <b>Evening Snack:</b> Milk or sprouts.</p>
+<p> <b>Dinner:</b> Chapati, vegetable curry and dal.</p>
+</div>
+</section>
+
+<!-- Nutrition -->
+<section>
+<h2>Important Nutrients</h2>
+
+<div class="container">
+<div class="card">
+<div class="card-info">
+<h3> Protein</h3>
+<p>Helps build and repair body tissues.</p>
+<p>Sources: Eggs, pulses and milk.</p>
+</div>
+</div>
+
+<div class="card">
+<div class="card-info">
+<h3> Carbohydrates</h3>
+<p>Provide energy for daily activities.</p>
+<p>Sources: Rice, wheat and oats.</p>
+</div>
+</div>
+
+<div class="card">
+<div class="card-info">
+<h3> Healthy Fats</h3>
+<p>Support normal body functions.</p>
+<p>Sources: Nuts, seeds and oils.</p>
+</div>
+</div>
+
+<div class="card">
+<div class="card-info">
+<h3> Vitamins</h3>
+<p>Support normal growth and health.</p>
+<p>Sources: Fruits and vegetables.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Healthy Tips -->
+<section id="tips" class="tips">
+<h2>Healthy Eating Tips</h2>
+
+<div class="meal">
+<p>1. Eat a variety of fruits and vegetables.</p>
+<p>2. Drink enough water throughout the day.</p>
+<p>3. Include different food groups in meals.</p>
+<p>4. Choose whole grains regularly.</p>
+<p>5. Maintain regular meal timings.</p>
+<p>6. Limit excess salt and sugary drinks.</p>
+</div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+<h2>Contact Us</h2>
+<p>Email:sureshtalakonda562@gmail.com </p>
+<p>Phone: 9876543210</p>
+<p>Address: Vijayawada, Andhra Pradesh</p>
+</section>
+
+<!-- Footer -->
+<footer>
+<h3>Healthy Life - Food and Nutrition</h3>
+<p>Eat Well, Live Well!</p>
+<p>© 2026 All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
